@@ -16,4 +16,12 @@ public class Aircraft {
     private long nextId() {
         return ++idCounter;
     }
+
+    protected void log(String message) {
+        Logger.getInstance().log(this.getFullName() + ": " + message);
+    }
+
+    public String getFullName() {
+        return this.getClass().getTypeName() + "#" + this.name + "(" + this.id + ")";
+    }
 }

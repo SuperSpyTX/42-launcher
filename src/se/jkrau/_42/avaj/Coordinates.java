@@ -22,4 +22,33 @@ public class Coordinates {
     public int getHeight() {
         return height;
     }
+
+    public Coordinates changeLongitude(int value) {
+        if (this.longitude + value <= 0)
+            this.longitude = 1;
+        else
+            this.longitude += value;
+
+        return this;
+    }
+
+    public Coordinates changeLatitude(int value) {
+        if (this.latitude + value <= 0)
+            this.latitude = 1;
+        else
+            this.latitude += value;
+
+        return this;
+    }
+
+    public Coordinates changeHeight(int value) {
+        if (this.height + value >= 100)
+            this.height = 100;
+        else if (this.height + value <= 0)
+            this.height = 0;
+        else
+            this.height += value;
+
+        return this;
+    }
 }

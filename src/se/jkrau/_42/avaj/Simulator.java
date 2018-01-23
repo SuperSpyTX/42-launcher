@@ -5,13 +5,12 @@ import java.io.PrintStream;
 public class Simulator {
 
     private WeatherTower weatherTower;
-    private PrintStream printStream;
     private int iterations;
 
-    public Simulator(WeatherTower tower, PrintStream output, int iterations) {
+    public Simulator(WeatherTower tower, int iterations, String outputFile) {
         this.weatherTower = tower;
-        this.printStream = output;
         this.iterations = iterations;
+        Logger.getInstance().setOutputFile(outputFile);
     }
 
     public void run() {

@@ -26,7 +26,6 @@ public class AircraftFactory {
                 break;
             default:
                 throw new InvalidAircraftException(type);
-
         }
 
         return fly;
