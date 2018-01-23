@@ -7,6 +7,6 @@ public class WeatherTower extends Tower {
     }
 
     void changeWeather() {
-
+        // Change weather here
     }
 }
