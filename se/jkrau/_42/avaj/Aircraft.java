@@ -22,6 +22,6 @@ public class Aircraft {
     }
 
     public String getFullName() {
-        return this.getClass().getTypeName() + "#" + this.name + "(" + this.id + ")";
+        return this.getClass().getSimpleName() + "#" + this.name + "(" + this.id + ")";
     }
 }

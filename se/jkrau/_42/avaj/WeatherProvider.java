@@ -31,9 +31,6 @@ public class WeatherProvider {
             randomInts[i] = buffer.getInt(i);
         }
 
-        // Temperature is assumed to be in farenheit.
-        // Humidity is assumed to be relative humidity.
-
         int temperature = (coordinates.getLongitude() * randomInts[0])
                 * (coordinates.getLatitude() * randomInts[1])
                 * (coordinates.getHeight() * randomInts[2]) % 100;
@@ -41,17 +38,30 @@ public class WeatherProvider {
                 * (coordinates.getLatitude() * randomInts[4])
                 * (coordinates.getHeight() * randomInts[5]) % 100;
 
+        if (temperature < 0)
+            temperature *= -1;
+        if (humidity < 0)
+            humidity *= -1;
+
         // Not a meteorologist..
 
-        if ((humidity >= 80 && temperature <= 75) || (humidity <= 20 && temperature >= 70)) {
-            return weather[1];
-        }
+        System.out.println("Values: T: " + temperature + " H:" + humidity);
 
-        if (humidity >= 50) {
-            if (temperature <= 40 && temperature >= 20) {
-                return weather[3];
-            } else if (temperature >= 40) {
+        if (humidity >= 60) {
+            if (temperature >= 75) {
                 return weather[0];
+            } else if (temperature >= 40) {
+                return weather[1];
+            } else {
+                return weather[3];
+            }
+        } else if (humidity >= 40) {
+            if (temperature >= 70) {
+                return weather[0];
+            } else if (temperature >= 40) {
+                return weather[1];
+            } else {
+                return weather[3];
             }
         }
 

@@ -32,6 +32,8 @@ public class Logger {
                 e.printStackTrace();
             }
         }
+
+        System.out.print(message);
     }
 
     public String getOutputFile() {
