@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Singleton logging class for logging Simulator output.
+ */
 public class Logger {
 
     private static Logger loggerInstance;
@@ -23,6 +26,7 @@ public class Logger {
         return loggerInstance;
     }
 
+
     private void writeLog(String message) {
         if (this.fileOutputStream != null) {
             message += "\n";
@@ -32,8 +36,6 @@ public class Logger {
                 e.printStackTrace();
             }
         }
-
-        System.out.print(message);
     }
 
     public String getOutputFile() {

@@ -5,6 +5,9 @@ public class Coordinates {
     private int latitude;
     private int height;
 
+    /**
+     * Package-visible constructor.
+     */
     Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
         this.latitude = latitude;

@@ -1,7 +1,14 @@
 package se.jkrau._42.avaj;
 
+/**
+ * Factory pattern for creating Aircraft classes.
+ * @see se.jkrau._42.avaj.Aircraft
+ */
 public class AircraftFactory {
 
+    /**
+     * Custom exception if invalid Aircraft has been selected.
+     */
     public static class InvalidAircraftException extends Throwable {
         InvalidAircraftException(String type) {
             super("'" + type + "' is not a valid Aircraft Type.");

@@ -2,20 +2,27 @@ package se.jkrau._42.avaj;
 
 import java.io.*;
 
+/**
+ * Simulator Class to structure all Simulation code.
+ * Designed to parse a scenario.txt file and output to a simulation file with a Logger.
+ * @see se.jkrau._42.avaj.Logger
+ */
 public class Simulator {
 
     private WeatherTower weatherTower;
     private BufferedReader bufferedReader;
     private int iterations;
+    private boolean debug;
 
-    public Simulator(String inputFile, String outputFile) throws FileNotFoundException {
+    public Simulator(String inputFile, String outputFile, boolean debug) throws FileNotFoundException {
         this.weatherTower = new WeatherTower();
         this.iterations = 0;
         this.bufferedReader = new BufferedReader(new FileReader(inputFile));
+        this.debug = debug;
         Logger.getInstance().setOutputFile(outputFile);
     }
 
-    public boolean parseFile() {
+    public boolean parse() {
         try {
             this.iterations = Integer.parseInt(bufferedReader.readLine());
 
@@ -69,6 +76,8 @@ public class Simulator {
 
     public void run() {
         for (int i = 0; i < this.iterations; i++) {
+            if (this.debug)
+                Logger.getInstance().log(" ---------------- ITERATION " + i + " ---------------------");
             this.weatherTower.changeWeather();
         }
     }

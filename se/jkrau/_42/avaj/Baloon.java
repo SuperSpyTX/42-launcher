@@ -4,7 +4,10 @@ public class Baloon extends Aircraft implements Flyable {
 
     private WeatherTower weatherTower;
 
-    protected Baloon(String name, Coordinates coordinates) {
+    /**
+     * Package-visible constructor.
+     */
+    Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
 

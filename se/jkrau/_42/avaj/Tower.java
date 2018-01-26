@@ -3,19 +3,26 @@ package se.jkrau._42.avaj;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Base level class for all Tower objects.
+ */
 public class Tower {
 
     private List<Flyable> observers;
+
     private List<Flyable> remove;
 
-    public Tower() {
+    /**
+     * Package-visible constructor.
+     */
+    Tower() {
         this.observers = new ArrayList<>();
         this.remove = new ArrayList<>();
     }
 
     protected void log(String message) {
         Logger.getInstance().log("Tower says: " + message);
-     }
+    }
 
     public void register(Flyable flyable) {
         observers.add(flyable);

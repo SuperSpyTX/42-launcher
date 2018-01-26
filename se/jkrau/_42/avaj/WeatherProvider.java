@@ -7,6 +7,7 @@ public class WeatherProvider {
 
     private static WeatherProvider weatherProvider;
     private static String[] weather;
+
     private static SecureRandom secureRandom;
 
     private WeatherProvider() {
@@ -14,6 +15,9 @@ public class WeatherProvider {
         secureRandom = new SecureRandom();
     }
 
+    /**
+     * Returns the singleton instance of WeatherProvider.
+     */
     public static WeatherProvider getProvider() {
         if (weatherProvider == null) {
             weatherProvider = new WeatherProvider();
@@ -22,6 +26,14 @@ public class WeatherProvider {
         return weatherProvider;
     }
 
+    /**
+     * Generates 6 random integers from SecureRandom, and multiplies coordinates with first 3 random
+     * integers, same calculation is done for last 3 integers.  These two values are then compared to
+     * as "temperature" and "humidity", and returns an appropriate value for weather.
+     *
+     * @param coordinates Coordinates of the current aircraft.
+     * @return "RAIN", "FOG", "SUN", "SNOW"
+     */
     public String getCurrentWeather(Coordinates coordinates) {
         byte[] randomBytes = new byte[36]; // sizeof(int) * 6
         secureRandom.nextBytes(randomBytes);
@@ -44,8 +56,6 @@ public class WeatherProvider {
             humidity *= -1;
 
         // Not a meteorologist..
-
-        System.out.println("Values: T: " + temperature + " H:" + humidity);
 
         if (humidity >= 60) {
             if (temperature >= 75) {
