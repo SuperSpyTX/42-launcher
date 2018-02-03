@@ -1,2 +1,5 @@
-# avaj-launcher
-Obviously a temporary repository for avaj-launcher
+# 42-Launcher
+Otherwise known as Savage-Launcher.....
+
+
+or avaj-launcher.
