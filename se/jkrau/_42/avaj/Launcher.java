@@ -32,7 +32,7 @@ public class Launcher {
             Logger.getInstance().close();
         } catch (FileNotFoundException e) {
             System.out.println("Error: File could not be opened or found.");
-            e.printStackTrace();
+            //e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

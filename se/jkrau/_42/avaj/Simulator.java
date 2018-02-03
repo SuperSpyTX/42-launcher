@@ -69,6 +69,9 @@ public class Simulator {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
+        } catch (NumberFormatException e) {
+            System.out.println("Error: No number listed at the top of the file.");
+            return false;
         }
 
         return true;
